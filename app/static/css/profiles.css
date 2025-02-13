@@ -1,0 +1,330 @@
+.body{
+    display: flex;
+    background-color: rgba(226, 225, 225, 0.438);
+    left: 0;
+    right: 0;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    
+}
+.nav-menu{
+    width: 300px;
+    height: 100%;
+    position: relative;
+    background-color: white;
+}
+.nav-menu ul{
+    left: 0;
+    margin-left: 4%;
+    padding: 0;
+}
+.nav-menu ul li{
+    list-style-type: none;
+    margin-bottom: 1em;
+}
+.nav-menu ul li  a{
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+    align-content: center;
+
+}
+.logout{
+    margin-top: 45%;
+}
+.nav-menu .logout a span:hover{
+    color:  red;
+}
+.nav-menu .logout a:focus{
+    border: 1px solid red;
+}
+.nav-menu ul li a:hover {
+    height: 20px;
+    border: 2px solid rgb(11, 84, 68);
+    border-radius: 35px;
+    padding: 6px;
+
+}
+.nav-menu ul li  a:focus{
+    border: 1px solid rgb(11, 84, 68);
+    border-radius: 35px;
+
+}
+.nav-menu ul li  a span:hover{
+    color:rgb(11, 84, 68);
+    font-weight: 700;
+    
+}
+.nav-menu ul li  a span{
+    padding: 12px;
+    font-size: 10px;
+    color: rgb(12, 2, 54);
+    font-family: Arial, Helvetica, sans-serif;
+}
+.nav-menu ul li img {
+    width: 1.5em;
+    height: 1.5em;
+}
+
+.nav-menu h1{
+    display: flex;
+    justify-content: center;
+    font-family:'Times New Roman', Times, serif;
+    font-weight: 900;
+    color: rgb(11, 84, 68);
+    font-size: 20px;
+}
+.nav-bar .img img{
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+}
+.nav-bar{
+    width: 100%;
+    display: flex;
+    background-color: white;
+    height: 45px;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+}
+.nav-bar .img {
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
+.nav-bar .img span {
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 5px;
+}
+.nav-body{
+    width: 100%;
+}
+
+.nav-content{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    margin-top: 5%;
+    margin-left: 1.5em;
+}
+.nav-content aside{
+    width: 270px;
+    height: 160px;
+    background-color: white;
+    border-radius: 25px;
+    border: none;
+}
+.nav-content aside a {
+    display: flex;
+    text-decoration: none;
+    align-content: center;
+    align-items: center;
+    padding-top: 15px;
+}
+.nav-content aside a img {
+    width: 70px;
+    height: 70px;
+}
+.nav-content aside a .infos  {
+    margin-left: 5px;
+}
+.nav-content aside a .infos h2 {
+    color: rgb(11, 84, 68);
+    font-family: 'Times New Roman', Times, serif;
+    line-height: 10px;
+    font-size: 1.1em;
+}
+.nav-content aside a .infos span  {
+    color: rgb(12, 2, 54);
+    font-family: sans-serif;
+    font-size: 0.9em;
+}
+
+
+
+.toggle-menu{
+    display: none;
+}
+
+
+.appoint{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    justify-content: center;
+    place-items: center;
+}
+.appoint nav{
+    background-color: white;
+    width: 350px;
+    border-radius: 20px;
+    padding: 20px;
+    margin-top: 15px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+.appoint .app{
+    display: flex;
+    justify-content: space-between;
+}
+.appoint .name{
+    width: 150px;
+}
+.appoint .app img {
+    width: 1em;
+    height: 1em;
+}
+.appoint .app .corbeil {
+    background-color: red;
+    border-radius: 5px;
+    padding-top: 2px;
+    width: 0.8em;
+    height: 0.8em;
+}
+
+@media(max-width:1016px){
+    .nav-menu{
+        display: none;
+    }
+    .toggle-menu{
+        display: flex;
+        align-items: center;
+        z-index:1000;
+        width: 40px;
+        height: 40px;
+        position: fixed;
+        margin-left: 1.5em;
+        justify-content: center;
+        cursor: pointer;
+    }
+    .toggle-menu::before{
+        content: "";
+        position: absolute;
+        width: 30px;
+        transition: 0.5s ;
+        transform: translateY(-10px);
+        height: 3px;
+        border-radius: 15px;
+        box-shadow: 0  10px 0 rgb(0, 195, 14);
+        background-color: rgb(0, 195, 14);
+    }
+    .toggle-menu.active::before{
+        box-shadow: 0 0 0  rgb(0, 195, 14);
+        transform: translateY(0) rotate(135deg);
+    }
+    .toggle-menu::after{
+        content: "";
+        position: absolute;
+        width: 30px;
+        transition: 0.5s ;
+        transform: translateY(10px);
+        height: 3px;
+        border-radius: 15px;
+        background-color: rgb(0, 195, 14);
+    }
+    .toggle-menu.active::after{
+        transform: translateY(0) rotate(-135deg);
+    }
+
+    .nav-menu.responsive{
+        display: grid;
+        position: absolute;
+        z-index: 1;
+        backdrop-filter: blur(15px);
+        top: 4%;
+    }
+    .nav-menu  h1{
+        top: 0%;
+        left: 40%;
+        margin-left: 25px;
+        position: absolute;
+    }
+    .nav-menu ul{
+        margin-top: 3em;
+    }
+    .nav-menu ul li  a span{
+        padding: 10px;
+        font-size: 0.7em;
+        color: rgb(12, 2, 54);
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .nav-menu ul li img {
+        width: 1.2em;
+        height: 1.2em;
+    }
+    .logout{
+        margin-top: auto;
+    }
+
+    .nav-bar{
+        left: 0;
+        position: fixed;
+        margin-left: 0;
+        width: 100%;
+        top: 0;
+        z-index: 100;
+    }
+    .nav-body{
+        position: relative;
+    }
+    .nav-content{
+        margin-top: 20%;
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        justify-content: center;
+        width: auto;
+        place-items: center;
+    }
+    .nav-content aside{
+        width: 250px;
+        height: 150px;
+        background-color: white;
+        border-radius: 25px;
+        border: none;
+        margin-bottom: 2em;
+
+    }.body{
+        position: relative;
+    }
+    .nav-content aside a {
+        display: flex;
+        text-decoration: none;
+        align-content: center;
+        align-items: center;
+        padding-top: 15px;
+        
+    }
+    .nav-content aside a img {
+        width: 50px;
+        height: 50px;
+    }
+    .nav-content aside a .infos  {
+        margin-left: 5px;
+    }
+    .nav-content aside a .infos h2 {
+
+        font-size: 1.1em;
+    }
+    .nav-content aside a .infos span  {
+        color: rgb(12, 2, 54);
+        font-family: sans-serif;
+        font-size: 0.8em;
+    }
+    .appoint{
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        justify-content: center;
+    }  }
+@media (max-width:1016px){
+    .appoint{
+        grid-template-columns: repeat(1,1fr);
+    }
+    .appoint nav {
+        width: 300px;
+    }
+    
+}

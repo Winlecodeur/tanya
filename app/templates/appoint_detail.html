@@ -1,0 +1,96 @@
+<!DOCTYPE html>{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/profiles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/member.css' %}">
+    <title>Profil Personnel</title>
+</head>
+<body>
+  <div class="body">
+    <nav class="toggle-menu"></nav>
+    <nav class="nav-menu">
+        <h1> Welcome {{user.username}}  </h1>
+        <ul>
+            <li><a href="{% url 'profile'  %}"><img src="{% static 'img/icons8-home-32.png' %}" alt=""> <span>Administration</span></a></li>
+            <li><a href="{% url 'add_member'  %}"><img src="{% static 'img/icons8-add-50.png' %}" alt=""> <span>Ajouter un memrbre</span> </a></li>
+            <li><a href="{% url 'member'  %}"><img src="{% static 'img/icons8-user-groups-50.png' %}" alt=""> <span>membres</span> </a></li>
+            <li><a href="{% url 'property'  %}"><img src="{% static 'img/icons8-property-50.png' %}" alt=""><span>propriétes</span></a></li>
+            <li><a href="{% url 'space_form'  %}"><img src="{% static 'img/icons8-property-48.png' %}" alt=""><span>Ajouter un espace</span></a></li>
+            <li><a href="{% url 'appoint'  %}"><img src="{% static 'img/icons8-appointment-80.png' %}" alt=""><span>rendez-vous</span></a></li>
+          
+            <li class="logout"><a href="{% url 'login' %}"><img src="{% static 'img/icons8-logout-24.png' %}" alt=""> <span>logout</span> </a></li>
+            
+        </ul>
+       </nav>
+      <nav class="nav-body">
+        <nav class="nav-bar">
+            <div class="img">
+                <span> {{user.username}}  {{user.last_name}}  </span>
+            </div>
+            <a href="{% url 'home' %}">visiter le site</a>
+           </nav>
+           <nav class="nav-content">
+            <aside>
+                <a href="{% url 'appoint_edit' appoint.id %}">
+                    <p><img src="{% static 'img/icons8-edit-48.png' %}" alt=""><div class="infos">
+                        <h2>modifier </h2>
+                        <span>Vous pouvez modifier les infos de ce rendez-vous</span>
+                    </div></p>
+                </a>
+            </aside>
+            <aside>
+                <a href="{% url 'appoint' %}">
+                    <p><img src="{% static 'img/icons8-appointment-80.png' %}" alt=""><div class="infos">
+                        <h2>RENDEZ-VOUS</h2>
+                        <span>consulter la liste des vos rendez-vous </span>
+                    </div></p>
+                </a>
+            </aside>
+            <aside>
+                <a >
+                    <p><img src="{% static 'img/icons8-send-24.png' %}" alt=""><div class="infos">
+                        <h2>ACTIVITES</h2>
+                        <span>Vous pouvez modifier et consulter les infos  ce rendez-vous  </span>
+                    </div></p>
+                </a>
+            </aside>
+            
+           </nav>
+           <div class="form-member" style="background-color: white;border-radius: 25px;width: auto;">
+            <nav>
+                <h3>Informations Générales</h3>
+                <form  method="post">
+                <nav >
+                    {% csrf_token %}
+                   
+                    <div><label for="">Nom</label> : {{appoint.name}}
+                   </div>
+                    <div><label for="">Post-nom</label> : {{appoint.last_name}}
+                   </div>
+                    <div><label for="">Prénom</label> :  {{appoint.given_name}}</div>
+                    <div><label for="">Num.Tél</label>  : {{appoint.number}}</div>
+                    <div><label for="">Date</label>    : {{appoint.date}}</div>
+                </nav>
+                  
+                </form>
+           
+            </nav>
+           
+          </div>
+      </nav>
+      
+  </div>
+  
+  
+  <script>
+     var menu = document.querySelector('.nav-menu')
+    var small_menu = document.querySelector('.toggle-menu')
+    small_menu.onclick = function () {
+        small_menu.classList.toggle('active')
+        menu.classList.toggle('responsive')
+    }
+  </script>
+</body>
+</html>

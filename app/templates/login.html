@@ -1,0 +1,40 @@
+<!DOCTYPE html>{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 ,maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/logins.css' %}">
+    <title>LOGIN</title>
+</head>
+<body>
+    <div class="container">
+      
+       <div class="container-form">
+        <h1>St MUSAMBI</h1>
+        <h2> SE CONNECTER </h2>
+        <form method="post">
+            {% csrf_token %}
+            {% if form.errors %} <span class="error"> {{form.errors}} </span> {% endif %}
+           <div>
+            <label for="" title="username valid"><img src="{% static 'img/icons8-male-user-50.png' %}" alt="">  {{form.username}} </label>
+        </div><br>
+           <div>
+            <label for="" title="password valid"><img src="{% static 'img/icons8-password-48.png' %}" alt="">  {{form.password}} </label>
+        </div>
+            <button type="submit"> Se connecter </button>
+        </form>
+        </div>
+    </div>
+    <div class="infos">
+      <div>
+        <a >politiques de confidentialités </a>
+        <a href="{% url 'home' %}"> informations</a>
+        <a href="{% url 'home' %}">à propos </a>
+        <a href="{% url 'home' %}"> contacts </a>
+      </div>
+    </div>
+    <script>
+       
+    </script>
+</body>
+</html>

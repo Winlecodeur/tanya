@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: tanya-app  # Le nom de ton service sur Render
+    env: python
+    buildCommand: |
+      pip install -r requirements.txt
+      python manage.py collectstatic 
+      python manage.py migrate
+    startCommand: gunicorn tanya.wsgi:application
+    envVars:
+      - key: DATABASE_URL
+        sync: false  # Ça veut dire que tu vas le configurer manuellement sur Render
+      - key: SECRET_KEY
+        sync: false

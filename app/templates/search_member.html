@@ -1,0 +1,104 @@
+<!DOCTYPE html>{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/profiles.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/member.css' %}">
+    <title>Profil Personnel</title>
+</head>
+<body>
+  <div class="body">
+    <nav class="toggle-menu"></nav>
+    <nav class="nav-menu">
+        <h1> Welcome {{user.username}}  </h1>
+        <ul>
+            <li><a href="{% url 'profile'  %}"><img src="{% static 'img/icons8-home-32.png' %}" alt=""> <span>Administration</span></a></li>
+            <li><a href="{% url 'add_member'  %}"><img src="{% static 'img/icons8-add-50.png' %}" alt=""> <span>Ajouter un memrbre</span> </a></li>
+            <li><a href="{% url 'member'  %}"><img src="{% static 'img/icons8-user-groups-50.png' %}" alt=""> <span>membres</span> </a></li>
+            <li><a href="{% url 'property'  %}"><img src="{% static 'img/icons8-property-50.png' %}" alt=""><span>propriétes</span></a></li>
+            <li><a href="{% url 'space_form'  %}"><img src="{% static 'img/icons8-property-48.png' %}" alt=""><span>Ajouter un espace</span></a></li>
+            <li><a href="{% url 'appoint'  %}"><img src="{% static 'img/icons8-appointment-80.png' %}" alt=""><span>rendez-vous</span></a></li>
+          
+            <li class="logout"><a href="{% url 'login' %}"><img src="{% static 'img/icons8-logout-24.png' %}" alt=""> <span>logout</span> </a></li>
+             
+        </ul>
+       </nav>
+      <nav class="nav-body">
+        <nav class="nav-bar">
+            <div class="img">
+                <span> {{user.username}}  {{user.last_name}}  </span>
+            </div>
+            <a href="{% url 'home' %}">visiter le site</a>
+           </nav>
+           <nav class="nav-content">
+            <aside>
+                <a href="{% url  'add_member' %}#form">
+                    <p><img src="{% static 'img/icons8-add-50.png' %}" alt=""><div class="infos">
+                        <h2>AJOUTER <br><br>UN MEMBRE</h2>
+                        <span>Ajouter un nouveau membre dans votre système </span>
+                    </div></p>
+                </a>
+            </aside>
+            <aside>
+                <a href="{% url 'member' %}#member">
+                    <p><img src="{% static 'img/icons8-user-groups-50.png' %}" alt=""><div class="infos">
+                        <h2>MEMBRES</h2>
+                        <span>consulter la liste des vos membres en temps réél</span>
+                    </div></p>
+                </a>
+            </aside>
+            <aside>
+                <a >
+                    <p><img src="{% static 'img/icons8-trash-64.png' %}" alt=""><div class="infos">
+                        <h2>ACTIVITES</h2>
+                        <span>Cliquer sur les icônes pour supprimer, consulter ou modifier les informations </span>
+                    </div></p>
+                </a>
+            </aside>
+            
+           </nav>
+           <div class="appoint1">
+            <nav>
+                <div class="div-search">
+                    <form action="{% url 'search_member' %}" method="get">
+                        <input type="text" value="{{request.GET.q}}" name="q" placeholder="ex.TANYA" >
+                        <button type="submit" class="btn" ><img src="{% static 'img/icons8-loupe-64.png' %}" ></button>
+                    </form>
+                </div>
+                <h3>VOS MEMBRES</h3>
+                {% for member in resultats  %}
+             <div class="app">
+                <div class="name">
+                    <span>  {{member.last_name}} </span>
+                  <span>  {{member.name}}</span>
+                  </div>
+                  <div>
+                    <a href="{% url 'detail_member' member.id %}"><img src="{% static 'img/icons8-male-user-50.png' %}" alt=""></a>
+                    <a href="{% url 'edit_member' member.id  %}"><img src="{% static 'img/icons8-edit-48.png' %}" alt=""></a>
+                    <a href="{% url 'delete_member' member.id %}" class="corbeil"><img src="{% static 'img/icons8-supprimer-24.png' %}" alt=""></a>
+                  </div>
+             </div>
+             {% empty %}
+             <span style="color: red;display: flex;justify-content: center;">
+                AUCUNE INFORMATION {{QUERY}}
+             </span>
+                {% endfor %}
+            </nav>
+           
+          </div>
+      </nav>
+      
+  </div>
+  
+  
+  <script>
+     var menu = document.querySelector('.nav-menu')
+    var small_menu = document.querySelector('.toggle-menu')
+    small_menu.onclick = function () {
+        small_menu.classList.toggle('active')
+        menu.classList.toggle('responsive')
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css'  %}" >
+    <link rel="stylesheet" href="{% static 'css/form.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="{% static 'img/icons8-sanitizer-64.png' %}">
+            <span>  St MUSAMBI</span>
+        </div>
+        <ul class="menu">
+            <li><a href="{% url 'home' %}"><img src="{% static 'img/icons8-home-32.png' %}" alt=""></a></li>
+            <li><a href="{% url 'form' %}"><img src="{% static    'img/icons8-stopwatch-64.png' %}" alt=""></a></li>
+            <li><a href="{% url 'home' %}#footer"><img src="{% static 'img/icons8-telephone-50.png' %}" alt=""></a></li>
+           {% if user.is_authenticated %}  <li><a href="{% url 'profile' %}"><img src="{% static 'img/icons8-male-user-50.png' %}" alt=""></a></li>
+        {% else %}
+        {% endif %}
+        </ul>
+    </header>
+    <div class="form"><br><br><br><br><br><br>
+        <h2>PRENDRE UN RENDEZ-VOUS</h2>
+        <form  method="post">
+            {% csrf_token %}
+            <div><label for="">Nom</label> {{form.name}}
+            </div>
+            <div><label for="">Post-nom</label> {{form.last_name}}
+            </div>
+            <div><label for="">Prenom</label> {{form.given_name}}
+            </div>
+            <div><label for="">Date</label> {{form.date}} 
+            </div>
+            <div><label for="">Num.Tél</label> {{form.number}}
+            </div>
+            
+            <button type="submit" id="submit"> envoyer</button>
+        </form>
+    </div>
+  <script src="{% static 'js/subs.js' %}"></script>
+</body>
+</html>

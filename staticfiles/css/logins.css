@@ -1,0 +1,185 @@
+.container{
+    width:100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 4%;
+}
+.container-media{
+    width: 500px;
+    position: relative;
+}
+.container-media  img {
+    border-radius:25px ;
+    width: 500px;
+    height: 450px;
+}
+.container-form  h1{
+    font-weight: 900;
+    font-size: 55px;
+}
+.container-form h1,h2{
+    color: rgb(11, 84, 68);
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    line-height: 10px;
+}
+.container-media .infos-p {
+    display: flex;
+    justify-content: center;
+    font-weight: 600;
+
+}
+
+.container-media .infos-p a {
+    color:rgb(11, 84, 68);
+  
+}
+.container-form {
+    margin: 30px;
+    display: block;
+    align-items: center;
+    align-content: center;
+}
+.container-form h2{
+    display: flex;
+    color: rgb(11, 84, 68);
+    justify-content: center;
+    font-weight: 900;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.container-form form div label {
+    display: flex;
+    justify-content: baseline;
+}
+.container-form form div label input {
+    width: 300px;
+    border-radius: 8px;
+    border: 1px solid rgb(11, 84, 68);
+    margin-left: 4px;
+}
+.container-form form{
+    display: grid;
+    justify-content: center;
+    margin-top: 2em;
+}
+.container-form form  button:hover{
+    letter-spacing: 1px;
+}
+.container-form form  button {
+    cursor: pointer;
+    border: none;
+    background-color:rgb(11, 84, 68);
+    padding: 10px 100px ;
+    border-radius: 35px;
+    color: white;
+    margin-top: 2em;
+    display: flex;
+    justify-content: center;
+}
+.container-form form div label img {
+    width: 2em;
+    height: 2em;
+}
+.container-form .form-pass {
+    display: flex;
+    justify-content: center;
+}
+.container-form .form-pass a {
+    color: black
+}
+.container-form .form-google{
+    display: flex;
+    background-color: rgb(11, 84, 68);
+    border-radius: 8px;
+}
+
+.container-form .form-google a{
+    display: flex;
+    color: white;
+    text-decoration: none;
+    align-items: center;
+    align-content: center;
+    justify-content: center
+    ;
+}
+.container-form .form-signup a {
+    color: rgb(0,185,14);
+}
+
+.container-form form div label{
+    width: 350px;
+    height: 30px;
+}
+.container-form form div label input:focus{
+    border-color: rgb(11, 84, 68);
+    outline: none;
+    border: 2px solid rgb(11, 84, 68);
+}
+.infos{
+    justify-content: center;
+    display: flex;
+    margin-top: 2.5em;
+}
+.infos div{
+    display: flex;
+    justify-content: space-around;
+    width: 800px;
+}
+.infos a {
+   color: black;
+}
+.errorlist{
+    list-style-type:none;
+}
+
+.error  {
+    margin-bottom: 0.5em;
+    width: 400px;
+    border-radius: 10px;
+    height: 100px;
+    border: 1px solid red;
+}
+@media(max-width:946px){
+    .container {
+        display: grid;
+        justify-content: center;
+    }
+    .container-media {
+        display: flex;
+        justify-content: center;
+        width: auto;
+    }
+    .container-media img {
+        width: 100px;
+        height: 100px;
+    }
+    .container-form {
+        width: auto;
+    }
+    .container-form .form-google {
+        display: flex;
+        justify-content: center;
+    }
+
+    .container-form .form-signup {
+        display: flex;
+        justify-content: center;
+    }
+    .infos div{
+        width: auto;
+        display: flex;
+        justify-content: space-around;
+    }
+    .infos div a {
+        margin-right: 10px;
+        font-size: 12px;
+    }
+    .error{
+        width: 300px;
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+    }
+}

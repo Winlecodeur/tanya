@@ -1,0 +1,88 @@
+<!DOCTYPE html>{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css'  %}" >
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="{% static 'img/icons8-sanitizer-64.png' %}">
+            <span> St MUSAMBI</span>
+        </div>
+        <ul class="menu">
+            <li><a href="{% url 'home'  %}"><img src="{% static 'img/icons8-home-32.png' %}" alt=""></a></li>
+            <li><a href="{% url 'form'  %}"><img src="{% static    'img/icons8-stopwatch-64.png' %}" alt=""></a></li>
+            <li><a href="{% url 'home'  %}#footer"><img src="{% static 'img/icons8-telephone-50.png' %}" alt=""></a></li>
+            {% if user.is_authenticated %}  <li><a href="{% url 'profile' %}"><img src="{% static 'img/icons8-male-user-50.png' %}" alt=""></a></li>
+            {% else %}
+            {% endif %}
+        </ul>
+    </header>
+  <div class="" id="nav-hosto">
+    <nav class="nav-hosto item" >
+            <img src="{% static 'img/PHOTOS 8.jpg' %}" id="hosto">
+            <aside><h2>BIENVENUE SUR L'APPLICATION WEB OFFICIELLE DE LA <strong>St MUSAMBI</strong></h2><span>Depuis notre application online,  consulter toute notre actualité,nos événements; nos réalisations,  prenez de consultation ,prenez vos resultats , prenez contactes avecun professionnel, faites tout depuis chez vous en un simple clic </span><br> <div> <a href="{% url 'form' %}" class="a-p" >PRENEZ UN RENDEZ-VOUS</a> </div></aside>
+            <img src="{% static 'img/PHOTOS 8.jpg' %}" id="hosto1">
+        </nav>
+  </div>
+ <div class="" id="nav-hosto-prompt">
+    <nav class="nav-hosto-prompt item"  >
+            <img src="{% static 'img/PHOTO 1.jpg' %}">
+            <aside>  <h2> POURQUOI  NOUS FAIRE CONFIANCE ?  </h2> <span>Notre équipe composée de meilleurs prend soin de vous poser autant de questions possibles, de vous examiner jusqu'à être sûr que votre etat est stable, pas besoin de s'inquiter pour votre santé, chez nous vous repartez satisfait et en bonne santé, notre équipe prend le temps de s'assurer que votre etat reste stable même après votre depart, ALORS QU'ATTENDEZ-VOUS ! </span><div><a href="{% static 'Depliant MUSAMBI.pdf' %}" download="">TELECHARGER LE PDF </a></div> </aside> 
+        </nav>
+ </div>
+ <div class="" id="nav-hosto-interne">
+    <nav class="nav-hosto-interne item" >
+            <img src="{% static 'img/PHOTOS 7.jpg' %}" id="interne"/>
+            <aside><h2>LES CONDITIONS POUR EN BENEFICIER</h2> <span>Etre veuve, demunie, marié, orphelin,les personnes handicapés, mariéet autres moyennant une contrepartie pour l'entretenir</span> <div><a href="{% static 'Depliant MUSAMBI.pdf' %}" download="">TELECHARGER LE PDF</a></div> </aside>
+            <img src="{% static 'img/PHOTOS 7.jpg' %}" id="interne1"/>
+        </nav>
+ </div>
+<div id="nav-hosto-operation">
+   <nav class="nav-hosto-operation item" >
+    <img src="{% static 'img/PHOTOS 6.jpg' %}">
+    <aside><h2>QUI SOMMES-NOUS?</h2> <span> La Société MUSAMBI a été créé à Kinshasa, le………/……/... pour 
+        contribuer à la campagne de sans-abris à l’occasion de la 
+        trentième anniversaire du feu Lieutenant-Colonel NGONGO DI 
+        LUTETE Léon </span><div><a href="{% static 'Depliant MUSAMBI.pdf' %}" download="">TELECHARGER LE PDF </a></div></aside>
+   
+</div>   
+</nav>
+   <div class="" id="nav-hosto-pharma">
+    <nav class="nav-hosto-pharma item " > 
+            <img src="{% static 'img/PHOTO 2.jpg' %}" id="pharma">
+            <aside><h2>NOTRE OBJECTIF</h2><span style="font-size: 12px;">Nos objectifs et d’unir tous les Associations 
+                Internationales y compris les sans-abris enfin de fournir une aide 
+                concrète et encourager un changement systématique pour 
+                presque un milliard de personne dans ce monde, ne disposant 
+                pas d’un domicile ; les sans-abris inclut les personnes vivant 
+                dans la rue, le réfugiés, les veuves orphelins…, les déplacées de 
+                guerres, victime des catastrophes naturelles ainsi que celle qui 
+                vivent dans de bidonville et des logements inadéquates avec l’aide 
+                de toute les associations et les société à apporter un changement 
+                réel et durable dans la vie de millier des personnes sans-abris 
+                dans le monde pour encourager l’expansion de nouveau service</span><div><a href="{% static 'Depliant MUSAMBI.pdf' %}" download="">TELECHARGER LE PDF</a></div></aside>
+            <img src="{% static 'img/PHOTO 2.jpg' %}" id="pharma1">
+          
+       
+        </nav>
+   </div>
+   <footer id="footer" >
+   <div class="div-media item" >
+    <li class="footer-li">
+        <a href="mailto:ngongotania@gmail.com"><img src="{% static 'img/icons8-email-50.png' %}" alt=""></a>
+        <a href="https://wa.me/243859087408?text"><img src="{% static 'img/icons8-whatsapp-50.png' %}"  alt=""></a>
+        <a href="https://youtube.com/@SociétéMusambi"><img src="{% static 'img/icons8-youtube-50.png' %}" alt=""></a></li>
+   </div>
+    <div class="div-infos item">
+        <li><h2>Horaire</h2><span>Nous sommes ouvert : <br> 24H/24 - 7jrs/7 <br> Heure de visite : <br>  9h - 21h <br> Heure de consultation :<br> 9h - 14h <br> Heure de chrurgie : <br> depend de votre programme </span></li>
+        <li><h2>Communautés</h2><span>Notre communauté sur les résseaux est très presente, nos clients sont toujours satisfaits malgrè toute les critiques que certains malhonnete essaie de faire circule sur nous sur ls reseaux, nos comptes medias sont justement disponible</span></li>
+      <li><h2>Adresse</h2> <span>  Q/sans-fil N.2 C/MONT-HOLOI AVE.ROLONE KIN-DRC <br> pas d'inquietude, l'établissement est bien connu dans le quartier et dans le pays en cas d'egarment toute personne aux alentoures est une aide cruciale pour vous retrouver chez nous</span></li>
+    </div>
+   </footer>
+   <script src="{% static 'js/home.js' %}"></script>
+</body>
+</html>

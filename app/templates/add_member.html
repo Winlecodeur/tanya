@@ -1,0 +1,112 @@
+<!DOCTYPE html>{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/profiles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/member.css' %}">
+    <title>Profil Personnel</title>
+</head>
+<body>
+  <div class="body">
+    <nav class="toggle-menu"></nav>
+    <nav class="nav-menu">
+        <h1> Welcome {{user.username}}  </h1>
+        <ul>
+            <li><a href="{% url 'profile'  %}"><img src="{% static 'img/icons8-home-32.png' %}" alt=""> <span>Administration</span></a></li>
+            <li><a href="{% url 'add_member'  %}"><img src="{% static 'img/icons8-add-50.png' %}" alt=""> <span>Ajouter un memrbre</span> </a></li>
+            <li><a href="{% url 'member'  %}"><img src="{% static 'img/icons8-user-groups-50.png' %}" alt=""> <span>membres</span> </a></li>
+            <li><a href="{% url 'property'  %}"><img src="{% static 'img/icons8-property-50.png' %}" alt=""><span>propriétes</span></a></li>
+            <li><a href="{% url 'space_form'  %}"><img src="{% static 'img/icons8-property-48.png' %}" alt=""><span>Ajouter un espace</span></a></li>
+            <li><a href="{% url 'appoint'  %}"><img src="{% static 'img/icons8-appointment-80.png' %}" alt=""><span>rendez-vous</span></a></li>
+          
+            <li class="logout"><a href="{% url 'login' %}"><img src="{% static 'img/icons8-logout-24.png' %}" alt=""> <span>logout</span> </a></li>
+            
+        </ul>
+       </nav>
+      <nav class="nav-body">
+        <nav class="nav-bar">
+            <div class="img">
+                <span> {{user.username}}  {{user.last_name}}  </span>
+            </div>
+            <a href="{% url 'home' %}">visiter le site</a>
+           </nav>
+           <nav class="nav-content">
+            <aside>
+                <a href="{% url  'add_member' %}#form">
+                    <p><img src="{% static 'img/icons8-add-50.png' %}" alt=""><div class="infos">
+                        <h2>AJOUTER <br><br>UN MEMBRE</h2>
+                        <span>Ajouter un nouveau membre dans votre système </span>
+                    </div></p>
+                </a>
+            </aside>
+            <aside>
+                <a href="{% url 'member' %}#member">
+                    <p><img src="{% static 'img/icons8-user-groups-50.png' %}" alt=""><div class="infos">
+                        <h2>MEMBRES</h2>
+                        <span>consulter la liste des vos membres en temps réél</span>
+                    </div></p>
+                </a>
+            </aside>
+            <aside>
+                <a >
+                    <p><img src="{% static 'img/icons8-trash-64.png' %}" alt=""><div class="infos">
+                        <h2>ACTIVITES</h2>
+                        <span>Cliquer sur les icônes pour supprimer, consulter ou modifier les informations </span>
+                    </div></p>
+                </a>
+            </aside>
+            
+           </nav>
+           <div class="form-member" id="form">
+            <nav>
+                <h3>Ajouter un membre</h3>
+                <form action="{% url 'add_member'  %}"  method="post">
+                <nav>
+                    {% csrf_token %}
+                   
+                    <div><label for="">Nom</label> {{form.name}}
+                   </div>
+                    <div><label for="">Post-nom</label>{{form.last_name}}
+                   </div>
+                    <div><label for="">Prénom</label>{{form.given_name}}</div>
+                    <div><label for="">Date de naissance</label> {{form.birth}}
+                   </div>
+                    <div><label for="">état civil</label>{{form.statut}}
+                   </div>
+                    <div><label for="">compagnon</label>{{form.spouse}}
+                   </div>
+                    <div><label for="">Nbre d'enfants</label>{{form.children}}
+                   </div>
+                    <div><label for="">infos sur les enfants</label>{{form.infos_children}}
+                   </div>
+                   <div><label for="">adresse</label>{{form.address}}
+                   </div>
+                   <div><label for="">Num.Tél</label>{{form.number}}
+                   </div>
+                   <div><label for="">Montant donné</label>{{form.money_GIVE}}
+                   </div>
+                   <div><label for="">biographie</label>{{form.bio}}
+                   </div>
+                </nav>
+                    <button type="submit">enregistrer</button>
+                </form>
+           
+            </nav>
+           
+          </div>
+      </nav>
+      
+  </div>
+  
+  
+  <script>
+     var menu = document.querySelector('.nav-menu')
+    var small_menu = document.querySelector('.toggle-menu')
+    small_menu.onclick = function () {
+        small_menu.classList.toggle('active')
+        menu.classList.toggle('responsive')
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+.form-member form nav{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 10px;
+    
+}
+.form-member form {
+    display: grid;
+    justify-content: center;
+}
+.form-member form input{
+    border: 1px solid rgb(11, 84, 68) ;
+    outline: none;
+    border-radius:5px ;
+
+}
+.form-member form input:focus{
+    border: 2px solid rgb(11, 84, 68);
+}
+.form-member form textarea {
+    height: 30px;
+}
+.form-member form div {
+    display: flex;
+    justify-content: space-between;
+    
+}
+.form-member nav h3 {
+    display: flex;
+    justify-content: center;
+    font-family: 'Times New Roman', Times, serif;
+} 
+.form-member button{
+    border: none;
+    border-radius: 15px;
+    background-color: rgb(11, 84, 68);
+    margin-top: 15px;
+    color: white;
+    padding: 5px ;
+    cursor: pointer;
+}
+
+
+.appoint1{
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    justify-content: center;
+    place-items: center;
+}
+.appoint1 nav{
+    background-color: white;
+    width: 350px;
+    border-radius: 20px;
+    padding: 20px;
+    margin-top: 15px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+.appoint1 .app{
+    display: flex;
+    justify-content: space-between;
+}
+.appoint1 .name{
+    width: 150px;
+}
+.appoint1 .app img {
+    width: 1em;
+    height: 1em;
+}
+.appoint1 .app .corbeil {
+    background-color: red;
+    border-radius: 5px;
+    padding-top: 2px;
+    width: 0.8em;
+    height: 0.8em;
+}
+.div-search input {
+    border-radius: 35px;
+    border: 1px solid rgb(11, 84, 68);
+    padding: 3px;
+    outline: none;
+
+}
+.div-search input:focus{
+    border: 3px solid rgb(11, 84, 68);
+}
+.div-search{
+    display: flex;
+    justify-content: center;
+}
+.div-search .btn{
+    border: none;
+    background-color: transparent;
+}
+
+.div-search form button img {
+    width: 1em;
+    height: 1em;
+    background-color: none;
+}
+@media(max-width:1016px){
+    .appoint1{
+        grid-template-columns: repeat(1,1fr);
+    }
+    .appoint1 nav {
+        width: 300px;
+    }
+    .form-member{
+        display: grid;
+        justify-content: center;
+    }
+    .form-member form nav {
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        min-width: 350px;
+    }
+    .form-member form textarea{
+        width: 100px;
+    }
+}
