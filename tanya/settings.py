@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-l*(-aimlj(3^*_=+ub&4$83u9q9jwbi^b#k4t#lgc6yr)u*cwl'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+
 
 ALLOWED_HOSTS = ['tanya.onrender.com']
 
@@ -76,15 +76,28 @@ WSGI_APPLICATION = 'tanya.wsgi.application'
 
 
 
-import dj_database_url
+import os
+from pathlib import Path
+from dotenv import load_dotenv
+
+load_dotenv()
+
+SECRET_KEY = os.getenv('SECRET_KEY', 'dev-secret-key')
+DEBUG = os.getenv('DEBUG', 'True') == 'True'
+
+if DEBUG:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
+else:
+    DATABASES = {
+        'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
+    }
 
 
-
-DATABASES = {
-    'default': dj_database_url.config(
-        default='sqlite:///db.sqlite3'
-    )
-}
 
 
 # Password validation

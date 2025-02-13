@@ -1,0 +1,15 @@
+# Fichiers/Dossiers spécifiques à Python et Django
+__pycache__/
+*.py[cod]
+*.sqlite3
+
+# Fichiers d’environnement
+.env
+
+# Fichiers et dossiers spécifiques à l'IDE
+.vscode/
+.idea/
+
+# Dossiers de virtualenv
+venv/
+env/
