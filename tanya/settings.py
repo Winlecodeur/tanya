@@ -82,7 +82,7 @@ import dj_database_url
 
 DATABASES = {
     'default': dj_database_url.config(
-        default='postgresql://tanya_client_user:OFEjLevLrIC6qjIUzkCYDRme6drsn8TW@dpg-cumrdt5ds78s73eq9930-a/tanya_client'
+        default='sqlite:///db.sqlite3'
     )
 }
 
