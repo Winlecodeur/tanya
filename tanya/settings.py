@@ -78,19 +78,20 @@ WSGI_APPLICATION = 'tanya.wsgi.application'
 
 
 import dj_database_url
+import os
+from dotenv import load_dotenv
+
+load_dotenv(os.path.join(BASE_DIR, '.env'))
+
+DEBUG = os.getenv('DEBUG') == 'True'
+
+import dj_database_url
+
+DATABASES = {
+    'default': dj_database_url.parse('postgresql://tanya_client_user:OFEjLevLrIC6qjIUzkCYDRme6drsn8TW@dpg-cumrdt5ds78s73eq9930-a.oregon-postgres.render.com/tanya_client')
+}
 
 
-if os.getenv('DATABASE_URL'):  # Cas de Render ou variable d'env présente
-    DATABASES = {
-        'default': dj_database_url.config(conn_max_age=600),
-    }
-else:  # Cas local sans variable d'environnement
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
-    }
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 
