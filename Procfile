@@ -1,1 +1,1 @@
-web: gunicorn tanya.wsgi:application  --log-file -
+web: gunicorn tanya.wsgi:application  
