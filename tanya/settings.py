@@ -88,7 +88,7 @@ DEBUG = os.getenv('DEBUG') == 'True'
 import dj_database_url
 
 DATABASES = {
-    'default': dj_database_url.config(default=os.getenv('DATABASE_URL'), conn_max_age=600)
+    'default': dj_database_url.parse('postgresql://tanya_client_user:OFEjLevLrIC6qjIUzkCYDRme6drsn8TW@dpg-cumrdt5ds78s73eq9930-a.oregon-postgres.render.com/tanya_client')
 }
 
 
