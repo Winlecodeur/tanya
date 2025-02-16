@@ -76,28 +76,12 @@ WSGI_APPLICATION = 'tanya.wsgi.application'
 
 
 
-import os
-from pathlib import Path
-from dotenv import load_dotenv
-
-load_dotenv()
-
-SECRET_KEY = os.getenv('SECRET_KEY', 'dev-secret-key')
-DEBUG = os.getenv('DEBUG', 'True') == 'True'
-
-if DEBUG:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
-else:
-    DATABASES = {
-        'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
-    }
-
-
+}
 
 
 # Password validation
