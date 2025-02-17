@@ -83,7 +83,7 @@ from dotenv import load_dotenv
 
 load_dotenv(os.path.join(BASE_DIR, '.env'))
 
-DEBUG = True
+DEBUG = False
 
 import dj_database_url
 
